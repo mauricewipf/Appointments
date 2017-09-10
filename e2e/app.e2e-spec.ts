@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('sulzer-pair-programming App', () => {
+describe('Appointments App', () => {
   let page: AppPage;
 
   beforeEach(() => {
