@@ -5,29 +5,35 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppointmentsViewComponent } from './appointments-view/appointments-view.component';
-import { AppointmentsService } from './appointments.service';
+import { AppointmentsService, Globals } from './appointments.service';
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
-import { AppointmentSearchPipe } from './appointment-search/appointment-search.pipe';
-import { AppointmentOrderPipe } from './appointment-order.pipe';
-// import { AppointmentSearchComponent } from './appointment-search/appointment-search.component';
+import { SearchPipe } from './search.pipe';
+import { OrderByPipe } from './order-by.pipe';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbdModalContentComponent, NgbdModalComponent } from './modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppointmentsViewComponent,
-    // AppointmentSearchComponent,
-    AppointmentSearchPipe,
-    AppointmentOrderPipe,
+    // SearchComponent,
+    SearchPipe,
+    OrderByPipe,
+    NgbdModalContentComponent,
+    NgbdModalComponent
   ],
   imports: [
     BrowserModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
     HttpModule,
     FormsModule,
+    NgbModule.forRoot(),
   ],
-  providers: [AppointmentsService],
-  bootstrap: [AppComponent]
+  providers: [AppointmentsService, Globals],
+  bootstrap: [AppComponent],
+  entryComponents: [NgbdModalContentComponent]
 })
 export class AppModule { }

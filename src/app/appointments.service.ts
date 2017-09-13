@@ -24,4 +24,17 @@ export class AppointmentsService {
       .catch(this.handleError);
   }
 
+  create(date: Date, name: string): Promise<Appointment> {
+    return this.http
+      .post(this.appointmentsUrl, JSON.stringify({date: date, name: name}), {headers: this.headers})
+      .toPromise()
+      .then(res => res.json().data as Appointment)
+      .catch(this.handleError);
+  }
+
+}
+
+@Injectable()
+export class Globals {
+  appointments: Appointment[];
 }

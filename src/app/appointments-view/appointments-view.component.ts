@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Appointment } from './../appointment';
-import { AppointmentsService } from './../appointments.service';
+import { AppointmentsService, Globals } from './../appointments.service';
 
 @Component({
   selector: 'app-appointments-view',
@@ -11,25 +11,26 @@ import { AppointmentsService } from './../appointments.service';
 export class AppointmentsViewComponent implements OnInit {
   appointments: Appointment[];
   @Input() searchString: string;
-  // isClassVisible = false;
 
-  constructor(private appointmentService: AppointmentsService) { }
+  today = new Date();
+
+  constructor(
+    private appointmentsService: AppointmentsService,
+    public globals: Globals
+  ) { }
 
   getAppointments(): void {
-
-    this.appointmentService.getAppointments()
-    .then(appointments => this.appointments = appointments);
+    this.appointmentsService.getAppointments()
+    // .then(appointments => this.appointments = appointments);
+    .then(appointments => this.globals.appointments = appointments.map(appointment => {
+      return {
+        date: new Date(appointment.date),
+        name: appointment.name,
+        id: appointment.id
+        };
+    }));
 
   }
-
-  // greyPastAppointments(): void {
-  //   for (let i = 0; i < this.appointments.length; i++) {
-  //     if (new Date(this.appointments[i].day) < new Date()) {
-  //       console.log('foo');
-  //       this.isClassVisible = true;
-  //     }
-  //   }
-  // }
 
   ngOnInit(): void {
     this.getAppointments();

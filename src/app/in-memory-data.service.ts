@@ -3,34 +3,29 @@ export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const appointments = [
       {
+        date: new Date('2015-08-20T12:00:00Z'),
+        name: 'Reifenwechsel',
         id: 11,
-        day: '2016-05-04',
-        time: '1288323623006',
-        name: 'Reifenwechsel',
       },
       {
+        date: new Date('2017-12-14T23:55:00Z'),
+        name: 'Reifenwechsel',
         id: 12,
-        day: '2017-12-14',
-        time: '1288323623006',
-        name: 'Reifenwechsel',
       },
       {
-        id: 13,
-        day: '2016-09-20',
-        time: '1288323623006',
+        date: new Date('2016-09-20T08:50:00Z'),
         name: 'Ölwechsel',
+        id: 13,
       },
       {
-        id: 14,
-        day: '2016-12-31',
-        time: '1288323623006',
+        date: new Date('2017-11-30T10:10:00Z'),
         name: 'Waschen',
+        id: 14,
       },
       {
-        id: 15,
-        day: '2017-01-01',
-        time: '1288323623006',
+        date: new Date('2017-01-01T13:00:00Z'),
         name: 'Inspektion',
+        id: 15,
       },
     ];
     return {appointments};

@@ -1,6 +1,5 @@
 export class Appointment {
-  id: number;
-  day: any;
-  time: any;
+  date: Date;
   name: string;
+  id: number;
 }

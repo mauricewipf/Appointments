@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <h4 class="modal-title">Add appointment</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+
+    <div class="form-group row">
+      <label for="appointment-date-input" class="col-2 col-form-label">Date</label>
+      <div class="col-10">
+        <input class="form-control" type="date" value="" id="appointment-date-input" [(ngModel)]="appointmentDayInput">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="appointment-time-input" class="col-2 col-form-label">Time</label>
+      <div class="col-10">
+        <input class="form-control" type="time" value="" id="appointment-time-input" [(ngModel)]="appointmentTimeInput">
+      </div>
+    </div>
+    <div class="form-group row">
+    <label for="appointment-service-input" class="col-2 col-form-label">Service</label>
+    <div class="col-10">
+      <input class="form-control" type="text" placeholder="Ölwechsel, Inspektion, …" id="appointment-service-input" [(ngModel)]="appointmentServiceInput">
+    </div>
+  </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="add(appointmentDayInput, appointmentTimeInput, appointmentServiceInput)">Save</button>
+    <button type="button" class="btn btn-link" (click)="activeModal.close()">Cancel</button>
+  </div>

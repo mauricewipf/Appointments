@@ -1,16 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { Appointment } from './../appointment';
-
-// import { AppointmentSearchComponent } from './appointment-search.component';
+import { Appointment } from './appointment';
 
 @Pipe({
-  name: 'appointmentSearch',
+  name: 'search',
   pure: false
 })
 
-export class AppointmentSearchPipe implements PipeTransform {
-
+export class SearchPipe implements PipeTransform {
   transform(items: any[], field: string, value: string): any[] {
     if (!items) {
       return [];
