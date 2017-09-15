@@ -3,11 +3,13 @@
 #### Features 
 
 - Angular 4 Frontend Application generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
-- Data mocked in `/src/app/in-memory-data.service.ts`
+- Data mocked in `/src/app/in-memory-data.service.ts` OR
+- Data fetched from Firebase database
 - Search appointments by name (`/src/app/search.pipe.ts`)
 - Appointments `orderBy` date (`/src/app/order-by.pipe.ts`)
 - Past appointments are grayed out with `[ngClass]="{…}"`
 - Add new appointment
+- Application is deployed on [Firebase](https://firebase.google.com/)
 
 ## Angular CLI commands
 
