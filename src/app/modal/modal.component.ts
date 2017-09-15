@@ -21,13 +21,16 @@ export class NgbdModalContentComponent {
   add(day: Date, time: Date, name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.appointmentsService.create(new Date(day + ' ' + time + ':00'), name)
-      .then(appointment => {
-        console.log(appointment);
+    this.appointmentsService.post(new Date(day + ' ' + time + ':00'), name);
+    this.activeModal.close();
 
-        this.globals.appointments.push(appointment);
-        this.activeModal.close();
-      });
+    // delete this
+    // this.appointmentsService.create(new Date(day + ' ' + time + ':00'), name)
+    //   .then(appointment => {
+    //     console.log(appointment);
+
+    //     this.globals.appointments.push(appointment);
+    //   });
   }
 
 }

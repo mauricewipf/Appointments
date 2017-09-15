@@ -15,6 +15,11 @@ import { OrderByPipe } from './order-by.pipe';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalContentComponent, NgbdModalComponent } from './modal/modal.component';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { environment } from './../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +36,8 @@ import { NgbdModalContentComponent, NgbdModalComponent } from './modal/modal.com
     HttpModule,
     FormsModule,
     NgbModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
   ],
   providers: [AppointmentsService, Globals],
   bootstrap: [AppComponent],

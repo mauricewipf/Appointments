@@ -9,7 +9,6 @@ import { AppointmentsService, Globals } from './../appointments.service';
   styleUrls: ['./appointments-view.component.css']
 })
 export class AppointmentsViewComponent implements OnInit {
-  appointments: Appointment[];
   @Input() searchString: string;
 
   today = new Date();
@@ -19,21 +18,24 @@ export class AppointmentsViewComponent implements OnInit {
     public globals: Globals
   ) { }
 
-  getAppointments(): void {
-    this.appointmentsService.getAppointments()
-    // .then(appointments => this.appointments = appointments);
-    .then(appointments => this.globals.appointments = appointments.map(appointment => {
-      return {
-        date: new Date(appointment.date),
-        name: appointment.name,
-        id: appointment.id
-        };
-    }));
-
-  }
+  // delete this
+  // getAppointments(): void {
+  //   this.appointmentsService.getAppointments()
+  //   // .then(appointments => this.appointments = appointments);
+  //   .then(appointments => this.globals.appointments = appointments.map(appointment => {
+  //     return {
+  //       date: new Date(appointment.date),
+  //       name: appointment.name,
+  //       id: appointment.id
+  //       };
+  //   }));
+  // }
 
   ngOnInit(): void {
-    this.getAppointments();
+    this.appointmentsService.getAppointments()
+    .subscribe(appointments => this.globals.appointments = appointments
+    );
+
   }
 
 }
