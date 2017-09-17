@@ -9,8 +9,6 @@ import { AppointmentsService, Globals } from './../appointments.service';
   styleUrls: ['./appointments-view.component.css']
 })
 export class AppointmentsViewComponent implements OnInit {
-  @Input() searchString: string;
-
   today = new Date();
 
   constructor(

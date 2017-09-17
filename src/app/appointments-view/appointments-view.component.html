@@ -11,7 +11,7 @@
         <div class="form-group">
             <div class="input-group">
                 <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
-                <input type="text" class="form-control" placeholder="Search" name="searchString" [(ngModel)]="searchString">
+                <input type="text" class="form-control" placeholder="Search" name="searchInputRef" #searchInputRef>
             </div>
         </div>
     </form>
@@ -28,7 +28,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr [ngClass]="{'greyText': (appointment.date < today) ? true:false}" *ngFor="let appointment of globals.appointments | orderBy: 'date' | search: 'name' : searchString">
+        <tr [ngClass]="{'greyText': (appointment.date < today) ? true:false}" *ngFor="let appointment of globals.appointments | orderBy: 'date' | search: 'name' : searchInputRef.value">
           <td>{{appointment.id}}</td>
           <td>{{appointment.date | date:"dd MMMM yyyy"}}</td>
           <td>{{appointment.date | date:"hh:mm"}}</td>
