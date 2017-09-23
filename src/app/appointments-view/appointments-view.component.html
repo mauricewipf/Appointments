@@ -21,7 +21,6 @@
     <table class="table table-bordered table-hover table-responsive">
       <thead>
         <tr>
-          <th>Id</th>
           <th>Date</th>
           <th>Time</th>
           <th>Name</th>
@@ -29,7 +28,6 @@
       </thead>
       <tbody>
         <tr [ngClass]="{'greyText': (appointment.date < today) ? true:false}" *ngFor="let appointment of globals.appointments | orderBy: 'date' | search: 'name' : searchString">
-          <td>{{appointment.id}}</td>
           <td>{{appointment.date | date:"dd MMMM yyyy"}}</td>
           <td>{{appointment.date | date:"hh:mm"}}</td>
           <td>{{appointment.name}}</td>
