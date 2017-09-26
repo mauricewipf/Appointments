@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 import { Appointment } from './appointment';
 
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -36,6 +36,10 @@ export class AppointmentsService {
 
   getAppointments(): FirebaseListObservable<any[]> {
     return this.firebaseDb.list('/appointments') as FirebaseListObservable<any[]>;
+  }
+
+  getAppointment(uid): FirebaseObjectObservable<any> {
+    return this.firebaseDb.object(`appointments/${uid}`) as FirebaseObjectObservable<any>;
   }
 
   post(date: Date, name: string) {

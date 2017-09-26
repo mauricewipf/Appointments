@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { SharedModule } from './shared/shared.module';
+import { AppRoutingModule } from './app-routing.module';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { NgbdModalContentComponent, NgbdModalComponent } from './modal/modal.com
 
 import { SearchPipe } from './search.pipe';
 import { OrderByPipe } from './order-by.pipe';
+import { AppointmentDetailViewComponent } from './appointment-detail-view/appointment-detail-view.component';
+import { HomeComponent } from './home/home.component';
 
 // import { HttpModule } from '@angular/http';
 // import { FormsModule } from '@angular/forms';
@@ -30,11 +33,14 @@ import { OrderByPipe } from './order-by.pipe';
     SearchPipe,
     OrderByPipe,
     NgbdModalContentComponent,
-    NgbdModalComponent
+    NgbdModalComponent,
+    AppointmentDetailViewComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
+    AppRoutingModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
     // HttpModule,
     // FormsModule,

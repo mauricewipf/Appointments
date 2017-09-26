@@ -33,7 +33,6 @@ export class AppointmentsViewComponent implements OnInit {
     this.appointmentsService.getAppointments()
     .subscribe(appointments => this.globals.appointments = appointments
     );
-
   }
 
 }
