@@ -28,7 +28,7 @@
         <div class="form-group">
           <label for="exampleInputPassword1">Password</label>
           <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" name="password" placeholder="Password">
-          <small id="emailHelp" class="form-text text-muted">Use for testing: 123456</small>
+          <small id="passwordHelp" class="form-text text-muted">Use for testing: 123456</small>
         </div>
         <button type="submit" class="btn btn-primary" (click)="login()" [disabled]="!email || !password">Login</button>
         <button type="submit" class="btn btn-secondary" (click)="signup()" [disabled]="!email || !password">Signup</button>
