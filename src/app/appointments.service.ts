@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
-
 import { Appointment } from './appointment';
-
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -33,13 +31,12 @@ export class AppointmentsService {
   //     .catch(this.handleError);
   // }
 
-
   getAppointments(): FirebaseListObservable<any[]> {
     return this.firebaseDb.list('/appointments') as FirebaseListObservable<any[]>;
   }
 
-  getAppointment(uid): FirebaseObjectObservable<any> {
-    return this.firebaseDb.object(`appointments/${uid}`) as FirebaseObjectObservable<any>;
+  getAppointment(key): FirebaseObjectObservable<any> {
+    return this.firebaseDb.object(`appointments/${key}`) as FirebaseObjectObservable<any>;
   }
 
   post(date: Date, name: string) {
@@ -55,9 +52,4 @@ export class AppointmentsService {
   //     .catch(this.handleError);
   // }
 
-}
-
-@Injectable()
-export class Globals {
-  appointments: Appointment[];
 }

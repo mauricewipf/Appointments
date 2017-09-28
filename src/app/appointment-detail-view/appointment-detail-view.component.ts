@@ -17,9 +17,8 @@ export class AppointmentDetailViewComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.appointmentsService.getAppointment(this.route.snapshot.params.id) // '-KtXud2EEKWDoAd7Eg_s'
+    this.appointmentsService.getAppointment(this.route.snapshot.params.key)
     .subscribe(appointment => {
-      console.log('appointment ', appointment);
       this.appointment = appointment;
     });
   }

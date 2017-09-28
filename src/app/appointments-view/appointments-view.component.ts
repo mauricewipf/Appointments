@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Appointment } from './../appointment';
-import { AppointmentsService, Globals } from './../appointments.service';
+import { AppointmentsService } from './../appointments.service';
 
 @Component({
   selector: 'app-appointments-view',
@@ -10,28 +10,31 @@ import { AppointmentsService, Globals } from './../appointments.service';
 })
 export class AppointmentsViewComponent implements OnInit {
   today = new Date();
+  appointments: Appointment[];
 
+  public searchString: string;
+  onChange(event) {
+    this.searchString = event.text;
+  }
   constructor(
     private appointmentsService: AppointmentsService,
-    public globals: Globals
   ) { }
 
   // delete this
   // getAppointments(): void {
   //   this.appointmentsService.getAppointments()
   //   // .then(appointments => this.appointments = appointments);
-  //   .then(appointments => this.globals.appointments = appointments.map(appointment => {
+  //   .then(appointments => this.appointments = appointments.map(appointment => {
   //     return {
   //       date: new Date(appointment.date),
-  //       name: appointment.name,
-  //       id: appointment.id
+  //       name: appointment.name
   //       };
   //   }));
   // }
 
   ngOnInit(): void {
     this.appointmentsService.getAppointments()
-    .subscribe(appointments => this.globals.appointments = appointments
+    .subscribe(appointments => this.appointments = appointments
     );
   }
 

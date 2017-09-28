@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-4">
+    <form>
+        <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
+                <input type="text" class="form-control" placeholder="Search" name="searchString" #searchInput (keyup)="change.emit({text: searchInput.value})">
+              </div>
+        </div>
+    </form>
+  </div>
+</div>

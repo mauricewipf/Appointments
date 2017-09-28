@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { AppointmentsViewComponent } from './appointments-view/appointments-view.component';
-import { AppointmentsService, Globals } from './appointments.service';
+import { AppointmentsService } from './appointments.service';
 
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalContentComponent, NgbdModalComponent } from './modal/modal.component';
@@ -15,6 +15,7 @@ import { SearchPipe } from './search.pipe';
 import { OrderByPipe } from './order-by.pipe';
 import { AppointmentDetailViewComponent } from './appointment-detail-view/appointment-detail-view.component';
 import { HomeComponent } from './home/home.component';
+import { AppointmentsSearchComponent } from './appointments-search/appointments-search.component';
 
 // import { HttpModule } from '@angular/http';
 // import { FormsModule } from '@angular/forms';
@@ -29,13 +30,13 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     AppointmentsViewComponent,
-    // SearchComponent,
     SearchPipe,
     OrderByPipe,
     NgbdModalContentComponent,
     NgbdModalComponent,
     AppointmentDetailViewComponent,
-    HomeComponent
+    HomeComponent,
+    AppointmentsSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +49,7 @@ import { HomeComponent } from './home/home.component';
     // AngularFireModule.initializeApp(environment.firebaseConfig),
     // AngularFireDatabaseModule,
   ],
-  providers: [AppointmentsService, Globals],
+  providers: [AppointmentsService],
   bootstrap: [AppComponent],
   entryComponents: [NgbdModalContentComponent]
 })

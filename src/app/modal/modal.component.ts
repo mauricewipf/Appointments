@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import { AppointmentsService, Globals } from './../appointments.service';
+import { AppointmentsService } from './../appointments.service';
 
 @Component({
   selector: 'app-ngbd-modal-content',
@@ -15,7 +15,6 @@ export class NgbdModalContentComponent {
   constructor(
     public activeModal: NgbActiveModal,
     private appointmentsService: AppointmentsService,
-    public globals: Globals
   ) {}
 
   add(day: Date, time: Date, name: string): void {
@@ -23,14 +22,6 @@ export class NgbdModalContentComponent {
     if (!name) { return; }
     this.appointmentsService.post(new Date(day + ' ' + time + ':00'), name);
     this.activeModal.close();
-
-    // delete this
-    // this.appointmentsService.create(new Date(day + ' ' + time + ':00'), name)
-    //   .then(appointment => {
-    //     console.log(appointment);
-
-    //     this.globals.appointments.push(appointment);
-    //   });
   }
 
 }

@@ -1,22 +1,12 @@
 <div class="row">
-</div>
-
-<div class="row">
   <div class="col-12">
     <h1>All Appointments</h1>
   </div>
+</div>
 
-  <div class="col-4">
-    <form>
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
-                <input type="text" class="form-control" placeholder="Search" name="searchString" [(ngModel)]="searchString">
-            </div>
-        </div>
-    </form>
-  </div>
+<app-appointments-search (change)="onChange($event)"></app-appointments-search>
 
+<div class="row">
   <div class="col-12">
     <table class="table table-bordered table-hover table-responsive">
       <thead>
@@ -27,10 +17,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr [ngClass]="{'greyText': (appointment.date < today) ? true:false}" *ngFor="let appointment of globals.appointments | orderBy: 'date' | search: 'name' : searchString">
+        <tr [ngClass]="{'greyText': (appointment.date < today) ? true:false}" *ngFor="let appointment of appointments | orderBy: 'date' | search: 'name' : searchString">
           <td>{{appointment.date | date:"dd MMMM yyyy"}}</td>
-          <td>{{appointment.date | date:"hh:mm"}}</td>
-          <td><a [routerLink]="['/appointments', appointment.id]">{{appointment.name}}</a></td>
+          <td>{{appointment.date | date:"HH:mm"}}</td>
+          <td><a [routerLink]="['/appointments', appointment.$key]">{{appointment.name}}</a></td>
         </tr>
       </tbody>
     </table>
