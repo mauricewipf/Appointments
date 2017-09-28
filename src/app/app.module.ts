@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppointmentsViewComponent } from './appointments-view/appointments-view.component';
 import { AppointmentsService } from './appointments.service';
+import { AuthService } from './auth.service';
 
 // import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalContentComponent, NgbdModalComponent } from './modal/modal.component';
@@ -49,7 +50,10 @@ import { AppointmentsSearchComponent } from './appointments-search/appointments-
     // AngularFireModule.initializeApp(environment.firebaseConfig),
     // AngularFireDatabaseModule,
   ],
-  providers: [AppointmentsService],
+  providers: [
+    AppointmentsService,
+    AuthService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [NgbdModalContentComponent]
 })
