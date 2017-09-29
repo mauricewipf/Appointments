@@ -23,4 +23,8 @@ export class AppointmentDetailViewComponent implements OnInit {
     });
   }
 
+  delete(key: string): void {
+    this.appointmentsService.deleteAppointment(key);
+  }
+
 }

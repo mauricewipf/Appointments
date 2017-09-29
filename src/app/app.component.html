@@ -17,8 +17,8 @@
 </div>
 
 <div *ngIf="!(authService.user | async)" class="container">
-  <div class="row">
-    <div class="col-12">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6">
       <form>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
@@ -30,8 +30,17 @@
           <input type="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="password" name="password" placeholder="Password">
           <small id="passwordHelp" class="form-text text-muted">Use for testing: 123456</small>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="login()" [disabled]="!email || !password">Login</button>
-        <button type="submit" class="btn btn-secondary" (click)="signup()" [disabled]="!email || !password">Signup</button>
+
+        <div *ngIf="alreadyMember">
+          <button type="submit" class="btn btn-primary" (click)="login()" [disabled]="!email || !password">Login</button>
+          <button type="button" class="btn btn-link" (click)="alreadyMember=false">Not a member?</button>
+        </div>
+        <div *ngIf="!alreadyMember">
+          <button type="submit" class="btn btn-primary" (click)="signup()" [disabled]="!email || !password">Signup</button>
+          <button type="button" class="btn btn-link" (click)="alreadyMember=true">Already member?</button>
+        </div>
+
+
       </form>
     </div>
   </div>

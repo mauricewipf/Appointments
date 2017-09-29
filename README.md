@@ -20,3 +20,12 @@
 - Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 - Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). Before running the tests make sure you are serving the app via `ng serve`.
 - [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md)
+
+## Firebase Deploy
+
+Project must already be set up on [https://console.firebase.google.com](https://console.firebase.google.com)
+
+- `firebase login`
+- `ng build`
+- `firebase deploy`
+- `firebase open hosting:site`

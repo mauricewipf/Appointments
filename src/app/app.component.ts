@@ -14,6 +14,7 @@ export class AppComponent {
 
   email: string;
   password: string;
+  alreadyMember = true;
 
   constructor(public authService: AuthService) {}
 

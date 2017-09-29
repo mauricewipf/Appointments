@@ -20,7 +20,7 @@ export class NgbdModalContentComponent {
   add(day: Date, time: Date, name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.appointmentsService.post(new Date(day + ' ' + time + ':00'), name);
+    this.appointmentsService.createAppointment(new Date(day + ' ' + time + ':00'), name);
     this.activeModal.close();
   }
 
