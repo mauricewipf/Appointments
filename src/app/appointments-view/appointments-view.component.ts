@@ -16,6 +16,7 @@ export class AppointmentsViewComponent implements OnInit {
   onChange(event) {
     this.searchString = event.text;
   }
+
   constructor(
     private appointmentsService: AppointmentsService,
   ) { }

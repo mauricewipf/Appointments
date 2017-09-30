@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <h1>
-        <a routerLink="/">{{title}}</a>
+        {{title}}
       </h1>
     </div>
   </div>
@@ -10,10 +10,16 @@
 <div *ngIf="authService.user | async" class="container">
   <div class="row" *ngIf="authService.user | async">
     <div class="col-12">
+      <a class="btn btn-sm btn-secondary" routerLink="/">
+        Home
+      </a>
+      <a class="btn btn-sm btn-secondary" routerLink="/profile">
+        Profile
+      </a>
+      <a class="btn btn-sm btn-secondary" routerLink="/about">
+        About
+      </a>
       <div class="float-right">
-        <a class="btn btn-sm btn-secondary" href="/profile">
-          Profile
-        </a>
         <a class="btn btn-sm btn-secondary" (click)="logout()">
           Logout
         </a>
