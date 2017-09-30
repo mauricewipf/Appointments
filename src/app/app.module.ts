@@ -17,6 +17,7 @@ import { OrderByPipe } from './order-by.pipe';
 import { AppointmentDetailViewComponent } from './appointment-detail-view/appointment-detail-view.component';
 import { HomeComponent } from './home/home.component';
 import { AppointmentsSearchComponent } from './appointments-search/appointments-search.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 // import { HttpModule } from '@angular/http';
 // import { FormsModule } from '@angular/forms';
@@ -37,7 +38,8 @@ import { AppointmentsSearchComponent } from './appointments-search/appointments-
     NgbdModalComponent,
     AppointmentDetailViewComponent,
     HomeComponent,
-    AppointmentsSearchComponent
+    AppointmentsSearchComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

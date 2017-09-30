@@ -8,10 +8,17 @@
   </div>
 </div>
 <div *ngIf="authService.user | async" class="container">
-  <div class="row justify-content-end">
-    <button class="btn btn-sm btn-secondary" (click)="logout()" *ngIf="authService.user | async">
-      Logout
-    </button>
+  <div class="row" *ngIf="authService.user | async">
+    <div class="col-12">
+      <div class="float-right">
+        <a class="btn btn-sm btn-secondary" href="/profile">
+          Profile
+        </a>
+        <a class="btn btn-sm btn-secondary" (click)="logout()">
+          Logout
+        </a>
+      </div>
+    </div>
   </div>
   <router-outlet></router-outlet>
 </div>
