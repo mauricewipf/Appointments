@@ -9,7 +9,7 @@ import { AppointmentsService } from './../appointments.service';
   styleUrls: ['./appointment-detail-view.component.css']
 })
 export class AppointmentDetailViewComponent implements OnInit {
-  appointment: Appointment;
+  appointment;
 
   constructor(
     private appointmentsService: AppointmentsService,
