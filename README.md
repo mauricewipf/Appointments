@@ -1,5 +1,7 @@
 # Appointments
 
+![Screenshot](Screenshot.png)
+  
 #### Features 
 
 - Angular 4 Frontend Application generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
