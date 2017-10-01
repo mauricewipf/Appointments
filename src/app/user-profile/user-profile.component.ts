@@ -12,15 +12,13 @@ export class UserProfileComponent implements OnInit {
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.authService.user
-    .subscribe(user => {
-      this.user = user;
-      console.log('user ', user);
-    });
+    this.user = this.authService.userObj;
   }
 
-  changePassword() {
-    alert('Function coming soon.');
+  resetPassword() {
+    this.authService.resetPassword(this.user.email).then(response => {
+      alert(response);
+    });
   }
 
 }

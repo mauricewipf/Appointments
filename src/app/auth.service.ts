@@ -17,6 +17,7 @@ export class AuthService {
   ) {
     this.user = firebaseAuth.authState;
     this.user.subscribe(user => this.userObj = user);
+    firebase.auth().useDeviceLanguage();
   }
 
   signup(email: string, password: string) {
@@ -50,4 +51,14 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
+  resetPassword(emailAddress: string): firebase.Thenable<any> {
+    console.log(`Reset password for ${emailAddress}.`);
+
+    return this.firebaseAuth
+    .auth.sendPasswordResetEmail(emailAddress).then(function() {
+      return `An email was sent to ${emailAddress}.`;
+    }).catch(function(error) {
+      return `Error: ${error.message}.`;
+    });
+  }
 }
