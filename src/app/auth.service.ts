@@ -33,32 +33,43 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    this.firebaseAuth
+    return this.firebaseAuth
       .auth
       .signInWithEmailAndPassword(email, password)
       .then(value => {
-        // console.log('login credentials: ', value);
+        return;
       })
       .catch(err => {
-        console.log('Something went wrong:', err.message);
+        return err;
       });
   }
 
   logout() {
     this.firebaseAuth
       .auth
-      .signOut();
-    this.router.navigate(['/']);
+      .signOut()
+      .then(_ => {
+        this.router.navigate(['/']);
+      });
   }
 
-  resetPassword(emailAddress: string): firebase.Thenable<any> {
-    console.log(`Reset password for ${emailAddress}.`);
-
+  resetPassword(): firebase.Thenable<any> {
+    console.log(`Reset password for ${firebase.auth().currentUser.email}.`);
     return this.firebaseAuth
-    .auth.sendPasswordResetEmail(emailAddress).then(function() {
-      return `An email was sent to ${emailAddress}.`;
+    .auth.sendPasswordResetEmail(firebase.auth().currentUser.email).then(function() {
+      return `An email was sent to ${firebase.auth().currentUser.email}.`;
     }).catch(function(error) {
       return `Error: ${error.message}.`;
+    });
+  }
+
+  deleteAccount() {
+    firebase.auth().currentUser
+    .delete().then(function() {
+      alert(`User deleted.`);
+      // logs out automatically
+    }).catch(function(error) {
+      alert(error);
     });
   }
 }

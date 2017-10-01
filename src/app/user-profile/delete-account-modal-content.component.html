@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title">Delete account</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<form>
+  <div class="modal-body">
+    <p>
+      All appointments will be deleted. Are you sure to delete this account? This cannot be undone.
+    </p>
+    <div class="form-group">
+      <label for="password">Enter your password:</label><br/>
+      <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" placeholder="Password">
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-link" (click)="activeModal.close()">Cancel</button>
+    <button type="submit" class="btn btn btn-danger" (click)="deleteAccount()" [disabled]="!password">Delete Account</button>
+  </div>
+</form>

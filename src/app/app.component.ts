@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth.service';
 
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdModalContentComponent } from './modal/modal.component';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,7 +21,11 @@ export class AppComponent {
   }
 
   login() {
-    this.authService.login(this.email, this.password);
+    this.authService.login(this.email, this.password).then(response => {
+      if (response) {
+        alert(response);
+      } else {}
+    });
     this.email = this.password = '';
   }
 

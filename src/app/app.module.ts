@@ -17,7 +17,7 @@ import { OrderByPipe } from './order-by.pipe';
 import { AppointmentDetailViewComponent } from './appointment-detail-view/appointment-detail-view.component';
 import { HomeComponent } from './home/home.component';
 import { AppointmentsSearchComponent } from './appointments-search/appointments-search.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserProfileComponent, DeleteAccountModalContentComponent } from './user-profile/user-profile.component';
 import { AboutComponent } from './about/about.component';
 
 // import { HttpModule } from '@angular/http';
@@ -41,6 +41,7 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     AppointmentsSearchComponent,
     UserProfileComponent,
+    DeleteAccountModalContentComponent,
     AboutComponent
   ],
   imports: [
@@ -59,6 +60,9 @@ import { AboutComponent } from './about/about.component';
     AuthService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [NgbdModalContentComponent]
+  entryComponents: [
+    NgbdModalContentComponent,
+    DeleteAccountModalContentComponent
+  ]
 })
 export class AppModule { }
