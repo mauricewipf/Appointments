@@ -20,7 +20,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   resetPassword() {
-    this.authService.resetPassword().then(response => {
+    this.authService.resetPassword(this.user.email).then(response => {
       alert(response);
     });
   }

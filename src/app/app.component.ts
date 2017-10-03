@@ -32,4 +32,11 @@ export class AppComponent {
   logout() {
     this.authService.logout();
   }
+
+  resetPassword() {
+    this.authService.resetPassword(this.email).then(response => {
+      alert(response);
+    });
+  }
+
 }

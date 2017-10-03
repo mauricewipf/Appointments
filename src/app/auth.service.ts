@@ -56,11 +56,11 @@ export class AuthService {
       });
   }
 
-  resetPassword(): firebase.Thenable<any> {
-    console.log(`Reset password for ${firebase.auth().currentUser.email}.`);
+  resetPassword(email): firebase.Thenable<any> {
+    console.log(`Reset password for ${email}.`);
     return this.firebaseAuth
-    .auth.sendPasswordResetEmail(firebase.auth().currentUser.email).then(function() {
-      return `An email was sent to ${firebase.auth().currentUser.email}.`;
+    .auth.sendPasswordResetEmail(email).then(function() {
+      return `An email was sent to ${email}.`;
     }).catch(function(error) {
       return `Error: ${error.message}.`;
     });
