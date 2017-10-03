@@ -28,6 +28,6 @@
 Project must already be set up on [https://console.firebase.google.com](https://console.firebase.google.com)
 
 - `firebase login`
-- `ng build -build`
+- `ng build -prod`
 - `firebase deploy`
 - `firebase open hosting:site`

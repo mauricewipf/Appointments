@@ -27,8 +27,8 @@ export class AuthService {
       .then(value => {
         console.log('Success!', value);
       })
-      .catch(err => {
-        console.log('Something went wrong:', err.message);
+      .catch(error => {
+        console.log('Something went wrong:', error.message);
       });
   }
 
@@ -39,8 +39,8 @@ export class AuthService {
       .then(value => {
         return;
       })
-      .catch(err => {
-        return err;
+      .catch(error => {
+        return error;
       });
   }
 
@@ -50,6 +50,9 @@ export class AuthService {
       .signOut()
       .then(_ => {
         this.router.navigate(['/']);
+      })
+      .catch(error => {
+        console.log(error);
       });
   }
 
