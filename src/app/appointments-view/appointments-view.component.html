@@ -20,7 +20,7 @@
         <tr [ngClass]="{'greyText': (appointment.date < today) ? true:false}" *ngFor="let appointment of appointments | orderBy: 'date' | search: 'name' : searchString">
           <td>{{appointment.date | date:"MMMM d, yyyy"}}</td>
           <td>{{appointment.date | date:"HH:mm"}}</td>
-          <td><a [routerLink]="['/appointments', appointment.$key]">{{appointment.name}}</a></td>
+          <td><a [routerLink]="['/appointments', appointment.id]">{{appointment.name}}</a></td>
         </tr>
       </tbody>
     </table>

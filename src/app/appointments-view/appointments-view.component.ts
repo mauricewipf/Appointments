@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Appointment } from './../appointment';
 import { AppointmentsService } from './../appointments.service';
 
+import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-appointments-view',
   templateUrl: './appointments-view.component.html',
@@ -20,18 +22,6 @@ export class AppointmentsViewComponent implements OnInit {
   constructor(
     private appointmentsService: AppointmentsService,
   ) { }
-
-  // delete this
-  // getAppointments(): void {
-  //   this.appointmentsService.getAppointments()
-  //   // .then(appointments => this.appointments = appointments);
-  //   .then(appointments => this.appointments = appointments.map(appointment => {
-  //     return {
-  //       date: new Date(appointment.date),
-  //       name: appointment.name
-  //       };
-  //   }));
-  // }
 
   ngOnInit(): void {
     this.appointmentsService.getAppointments()

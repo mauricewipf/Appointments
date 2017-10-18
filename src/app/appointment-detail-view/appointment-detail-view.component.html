@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="appointment">
   <div class="col-12">
     <h2>{{appointment.name}}</h2>
     <p>
@@ -7,13 +7,13 @@
       </p>
     <p>
         <i class="fa fa-clock-o" aria-hidden="true"></i>
-        {{appointment.date | date:"hh:mm"}}
+        {{appointment.date | date:"HH:mm"}}
     </p>
   </div>
   <div class="col-12">
       <form>
         <div class="form-group">
-          <button type="button" class="btn btn-sm btn-danger" (click)="delete(appointment.$key)">Delete appointment</button>
+          <button type="button" class="btn btn-sm btn-danger" (click)="delete(appointment.id)">Delete appointment</button>
           <small class="form-text text-muted">This cannot be undone!</small>
         </div>
       </form>

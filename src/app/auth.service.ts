@@ -56,7 +56,7 @@ export class AuthService {
       });
   }
 
-  resetPassword(email): firebase.Thenable<any> {
+  resetPassword(email) {
     console.log(`Reset password for ${email}.`);
     return this.firebaseAuth
     .auth.sendPasswordResetEmail(email).then(function() {
