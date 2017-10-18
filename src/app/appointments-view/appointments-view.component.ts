@@ -25,8 +25,7 @@ export class AppointmentsViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.appointmentsService.getAppointments()
-    .subscribe(appointments => this.appointments = appointments
-    );
+    .subscribe(appointments => this.appointments = appointments);
   }
 
 }
