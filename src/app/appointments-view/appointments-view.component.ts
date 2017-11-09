@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Observable';
 export class AppointmentsViewComponent implements OnInit {
   today = new Date();
   appointments: Appointment[];
+  holidays = [];
 
   public searchString: string;
   onChange(event) {
@@ -26,6 +27,25 @@ export class AppointmentsViewComponent implements OnInit {
   ngOnInit(): void {
     this.appointmentsService.getAppointments()
     .subscribe(appointments => this.appointments = appointments);
+
+    this.appointmentsService.getHolidays().subscribe(res => {
+      this.holidays = res.json().data;
+
+      console.log(this.isHoliday(new Date('2017-11-01')));
+    });
+
+
   }
 
+  isHoliday(date): boolean {
+    for (let i = 0; i < this.holidays.length; i++) {
+      console.log(new Date(this.holidays[i]).getTime());
+      console.log(date.getTime());
+
+      if ( date.getTime() === new Date(this.holidays[i]).getTime()) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

@@ -26,3 +26,20 @@ export class InMemoryDataService implements InMemoryDbService {
     return {appointments};
   }
 }
+export class InMemoryHolidayService implements InMemoryDbService {
+  createDb() {
+    const holidays = [
+      new Date('2017-10-31'),
+      new Date('2017-11-01'),
+      new Date('2017-12-25'),
+      new Date('2017-11-26'),
+      new Date('2017-11-27'),
+      new Date('2017-11-28'),
+      new Date('2018-01-01'),
+      new Date('2018-03-30'),
+      new Date('2018-04-02'),
+      new Date('2018-05-01'),
+    ];
+    return {holidays};
+  }
+}

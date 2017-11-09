@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
+import { Headers, Http } from '@angular/http';
 
 import { Appointment } from './appointment';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from 'angularfire2/database';
@@ -12,11 +13,15 @@ import { Observable } from 'rxjs/Observable';
 export class AppointmentsService {
   appointmentsRef: AngularFirestoreCollection<Appointment>;
 
+  private holidaysUrl = 'api/holidays';  // URL to web api
+  private headers = new Headers({'Content-Type': 'application/json'});
+
   constructor(
     private firebaseDb: AngularFireDatabase,
     private router: Router,
     private authService: AuthService,
-    private afs: AngularFirestore
+    private afs: AngularFirestore,
+    private http: Http
   ) {
     this.appointmentsRef = this.afs.collection<Appointment>('appointments');
   }
@@ -61,6 +66,10 @@ export class AppointmentsService {
       this.router.navigate(['/']);
     })
     .catch(err => alert(err));
+  }
+
+  getHolidays() {
+    return this.http.get(this.holidaysUrl);
   }
 
 }

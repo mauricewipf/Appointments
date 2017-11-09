@@ -20,15 +20,6 @@ import { AppointmentsSearchComponent } from './appointments-search/appointments-
 import { UserProfileComponent, DeleteAccountModalContentComponent } from './user-profile/user-profile.component';
 import { AboutComponent } from './about/about.component';
 
-// import { HttpModule } from '@angular/http';
-// import { FormsModule } from '@angular/forms';
-// Imports for loading & configuring the in-memory web api
-// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-// import { InMemoryDataService } from './in-memory-data.service';
-// import { AngularFireModule } from 'angularfire2';
-// import { AngularFireDatabaseModule } from 'angularfire2/database';
-// import { environment } from './../environments/environment';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,12 +39,6 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     SharedModule,
     AppRoutingModule,
-    // InMemoryWebApiModule.forRoot(InMemoryDataService),
-    // HttpModule,
-    // FormsModule,
-    // NgbModule.forRoot(),
-    // AngularFireModule.initializeApp(environment.firebaseConfig),
-    // AngularFireDatabaseModule,
   ],
   providers: [
     AppointmentsService,

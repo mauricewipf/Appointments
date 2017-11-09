@@ -18,8 +18,10 @@ export class NgbdModalContentComponent {
   ) {}
 
   add(day: Date, time: Date, name: string): void {
+    if (!name || !day || !time) {
+      return alert('Invalid input');
+    }
     name = name.trim();
-    if (!name) { return; }
     this.appointmentsService.createAppointment(new Date(day + ' ' + time + ':00'), name);
     this.activeModal.close();
   }
